@@ -17,7 +17,11 @@ public class PokerGameView {
 	
 	private PokerGameModel model;
 	
+	public Stage stage;
+	public Scene scene1;
+	
 	public PokerGameView(Stage stage, PokerGameModel model) {
+		this.stage = stage;
 		this.model = model;
 		
 		// Create all of the player panes we need, and put them into an HBox
@@ -30,7 +34,7 @@ public class PokerGameView {
 		
 		// Creation of the Setup scene
 		
-		Label lbs = new Label("Welcome to the FHNW SE Poker Miniproject!");
+		Label lbs = new Label("Welcome to the SE Poker Miniproject!");
 		Label lbs2 = new Label("Four players max!");
 		Label lbs3 = new Label("How many players are you?");
 		
@@ -40,10 +44,8 @@ public class PokerGameView {
 		boot.setTop(lbs);
 		boot.setCenter(chng);
 		
-		Scene scene1 = new Scene(boot, 400, 400);
+		this.scene1 = new Scene(boot, 400, 400);
 		stage.setTitle("Poker");
-		stage.setScene(scene1);
-		stage.show();
 		
 		
 		
@@ -57,15 +59,15 @@ public class PokerGameView {
 		root.setBottom(controls);
 		
 		// Disallow resizing - which is difficult to get right with images
-		stage.setResizable(false);
+		this.stage.setResizable(false);
 
         // Create the scene using our layout; then display it
         Scene sce = new Scene(root);
         sce.getStylesheets().add(
                 getClass().getResource("poker.css").toExternalForm());
-        stage.setTitle("Poker Miniproject");
-        stage.setScene(scene1);
-        stage.show();	
+        this.stage.setTitle("Poker Miniproject");
+        this.stage.setScene(this.scene1);
+        this.stage.show();	
         
         // Switching to the main Scene
         chng.setOnAction(e-> stage.setScene(sce));
@@ -74,6 +76,7 @@ public class PokerGameView {
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) players.getChildren().get(i);
 	}
+	
 	
 	public Button getShuffleButton() {
 		return controls.btnShuffle;

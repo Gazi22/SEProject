@@ -12,7 +12,7 @@ import poker.version_graphics.view.PokerGameView;
 
 public class PokerGameController {
 	private PokerGameModel model;
-	private PokerGameView view;
+	public PokerGameView view;
 	
 	public PokerGameController(PokerGameModel model, PokerGameView view) {
 		this.model = model;
@@ -67,9 +67,8 @@ public class PokerGameController {
     //
     
     private void setBack() {
-      
-
-        }
+    	this.view.stage.setScene(this.view.scene1);
+    }
     
     private void AddnewPlayer() { 
     	for(int i = 0 ; i < 4; i++) {

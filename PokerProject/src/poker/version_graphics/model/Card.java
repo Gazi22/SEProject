@@ -66,6 +66,8 @@ public class Card {
         return rank;
     }
     
+    //Try to compare cards, don't know if it works
+    
     public int compareTo(Card that) {
     	
     	if(this.suit.ordinal()>that.suit.ordinal()) {
