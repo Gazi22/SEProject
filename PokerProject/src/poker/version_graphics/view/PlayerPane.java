@@ -28,6 +28,8 @@ public class PlayerPane extends VBox {
         for (int i = 0; i < 5; i++) {
             Label lblCard = new CardLabel();
             hboxCards.getChildren().add(lblCard);
+            hboxCards.setSpacing(2);
+
         }
     }
     
