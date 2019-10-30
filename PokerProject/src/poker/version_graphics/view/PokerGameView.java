@@ -42,8 +42,6 @@ public class PokerGameView {
 		
 		BorderPane boot = new BorderPane();
 		VBox h = new VBox(lbs,lbs2,lbs3, chng);
-		boot.getStylesheets().add(
-                getClass().getResource("titlepage.css").toExternalForm());
 		boot.setCenter(h);
 		
 		
