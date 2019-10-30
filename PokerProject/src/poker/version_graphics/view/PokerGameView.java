@@ -90,8 +90,6 @@ public class PokerGameView {
 		return controls.btnBack;
 	}
 	
-	public Button getAddButton() {
-	return controls.btnAdd;
-	}
+	
 	
 }

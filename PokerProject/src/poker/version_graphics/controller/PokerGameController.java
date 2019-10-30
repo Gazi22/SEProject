@@ -21,7 +21,7 @@ public class PokerGameController {
 		view.getShuffleButton().setOnAction( e -> shuffle() );
 		view.getDealButton().setOnAction( e -> deal() );
 		view.getBackButton().setOnAction(e -> setBack() );
-		view.getAddButton().setOnAction(e -> AddnewPlayer());
+		
 	}
 	
 
@@ -70,14 +70,7 @@ public class PokerGameController {
     	this.view.stage.setScene(this.view.scene1);
     }
     
-    private void AddnewPlayer() { 
-    	for(int i = 0 ; i < 4; i++) {
-    	    PokerGame.NUM_PLAYERS++;
-    	    //Update your frame and or label
-    	    
-    	}
-        	
-    }
+    
 }
 
     	

@@ -82,7 +82,7 @@ public enum HandType {
     public static boolean isStraight(ArrayList<Card> cards) {
     	boolean isStraightfound = false;
     	
-    	cards.sort((x1,x2) -> x1.getRank().compareTo(x2.getRank()));
+    	cards.sort((c1,c2) -> c1.getRank().compareTo(c2.getRank()));
     	int i =0;
     	while( i < 4 && cards.get(i).getRank().ordinal() + 1 == cards.get(i + 1).getRank().ordinal())
     	{
