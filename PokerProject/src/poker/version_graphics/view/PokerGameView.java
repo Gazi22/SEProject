@@ -41,8 +41,12 @@ public class PokerGameView {
 		Button chng = new Button ("Start!");
 		
 		BorderPane boot = new BorderPane();
-		boot.setTop(lbs);
-		boot.setCenter(chng);
+		VBox h = new VBox(lbs,lbs2,lbs3, chng);
+		boot.getStylesheets().add(
+                getClass().getResource("titlepage.css").toExternalForm());
+		boot.setCenter(h);
+		
+		
 		
 		this.scene1 = new Scene(boot, 400, 400);
 		stage.setTitle("Poker");
