@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.HandType;
 import poker.version_graphics.model.Player;
@@ -27,6 +28,9 @@ public class PlayerPane extends VBox {
         // Add CardLabels for the cards
         for (int i = 0; i < 5; i++) {
             Label lblCard = new CardLabel();
+            
+            lblCard.setTextFill(Color.RED);
+            lblCard.getStyleClass().add("player-name");
             hboxCards.getChildren().add(lblCard);
             hboxCards.setSpacing(2);
 
@@ -40,6 +44,8 @@ public class PlayerPane extends VBox {
     
     public void updatePlayerDisplay() {
     	lblName.setText(player.getPlayerName());
+    	lblName.setOpacity(1);
+    	lblName.setTextFill(Color.GOLD);
     	for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
     		if (player.getCards().size() > i) card = player.getCards().get(i);
