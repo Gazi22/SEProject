@@ -11,7 +11,7 @@ public class Player implements Comparable<Player> {
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
     private HandType handType;
-    
+
     public Player(String playerName) {
         this.playerName = playerName;
     }
