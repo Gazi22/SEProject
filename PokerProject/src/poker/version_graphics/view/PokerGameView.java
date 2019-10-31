@@ -29,6 +29,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import poker.version_graphics.PokerGame;
+import poker.version_graphics.model.Player;
 import poker.version_graphics.model.PokerGameModel;
 
 public class PokerGameView {
@@ -63,11 +64,21 @@ public class PokerGameView {
 		Button players3 = new Button ("3 Players");
 		Button players4 = new Button ("4 Players");
 		
-		TextField name1 = new TextField("Please enter Name of Player 1");
-		TextField name2 = new TextField("Please enter Name of Player 2");
-		TextField name3 = new TextField("Please enter Name of Player 3");
-		TextField name4 = new TextField("Please enter Name of Player 4");
+		TextField name1 = new TextField();
+		TextField name2 = new TextField();
+		TextField name3 = new TextField();
+		TextField name4 = new TextField();
 		
+		name1.setPromptText("Please enter Name of Player 1");
+		name2.setPromptText("Please enter Name of Player 2");
+		name3.setPromptText("Please enter Name of Player 3");
+		name4.setPromptText("Please enter Name of Player 4");
+		
+		Player player1 = new Player(name1.getText());
+		Player player2 = new Player(name2.getText());
+		Player player3 = new Player(name3.getText());
+		Player player4 = new Player(name4.getText());
+
 		name1.setPrefSize(10, 10);
 		name2.setPrefSize(10, 10);
 		name3.setPrefSize(10, 10);
@@ -153,7 +164,5 @@ public class PokerGameView {
 	public Button getBackButton() {
 		return controls.btnBack;
 	}
-	
-	
 	
 }
