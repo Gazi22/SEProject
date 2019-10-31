@@ -1,12 +1,18 @@
 package poker.version_graphics.view;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+
 import javafx.scene.image.Image;
+
+import javafx.scene.control.TextField;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -51,8 +57,21 @@ public class PokerGameView {
 		Label lbs = new Label("Welcome to the SE Poker Miniproject!");
 		Label lbs2 = new Label("Four players max!");
 		Label lbs3 = new Label("How many players are you?");
-        final Region spacer1 = new Region();
+		final Region spacer1 = new Region();
 		Button chng = new Button ("Start!");
+		Button players2 = new Button ("2 Players");
+		Button players3 = new Button ("3 Players");
+		Button players4 = new Button ("4 Players");
+		
+		TextField name1 = new TextField("Please enter Name of Player 1");
+		TextField name2 = new TextField("Please enter Name of Player 2");
+		TextField name3 = new TextField("Please enter Name of Player 3");
+		TextField name4 = new TextField("Please enter Name of Player 4");
+		
+		name1.setPrefSize(10, 10);
+		name2.setPrefSize(10, 10);
+		name3.setPrefSize(10, 10);
+		name4.setPrefSize(10, 10);
 		
 		lbs.setTextFill(Color.GOLD);
 		lbs2.setTextFill(Color.BLACK);
@@ -62,15 +81,20 @@ public class PokerGameView {
 		
 		BorderPane boot = new BorderPane();
 		
-        boot.getStylesheets().add(
-                getClass().getResource("poker.css").toExternalForm());
-		
-		VBox h = new VBox(spacer1,lbs,lbs2,lbs3);
-        h.getStyleClass().add("vboxscene"); // CSS style class
+
+		//boot.getStylesheets().add(
+             //   getClass().getResource("poker.css").toExternalForm());
+              
+
+		VBox v1 = new VBox(spacer1, lbs, lbs2, lbs3);
+		VBox v2 = new VBox(name1, name2, players2, name3, players3, name4, players4);
+		VBox v3 = new VBox(chng);
+
+        v1.getStyleClass().add("vboxscene"); // CSS style class
         
         //add to Pane
         boot.setTop(spacer1);
-        boot.setCenter(h);
+        boot.setCenter(v1);
         boot.setBottom(chng);
         
         
@@ -78,11 +102,16 @@ public class PokerGameView {
         Image image1 = new Image(new FileInputStream("C:\\Users\\visnu\\git\\SEProject\\PokerProject\\src\\poker\\version_graphics\\view\\PokerStartScene.jpg"));
         BackgroundSize bSize = new BackgroundSize (500,500,false,false,true,false);
 		boot.setBackground(new Background(new BackgroundImage(image1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,bSize)));
-		
+
+		v1.setAlignment(Pos.CENTER);
+		v2.setAlignment(Pos.CENTER);
+		v3.setAlignment(Pos.CENTER);
 		this.scene1 = new Scene(boot, 500, 500);
+
+		
+
+
 		stage.setTitle("Poker");
-		
-		
 		
 		// Create the control area
 		controls = new ControlArea();
