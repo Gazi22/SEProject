@@ -22,12 +22,17 @@
 
 .player {
     -fx-font-size: 20.0px;
-    -fx-font-family: Forte;
-    -fx-font-color: rgb(250,250,210);
+    -fx-text-fill: red;
     -fx-padding: 5.0px;
     -fx-border-color: black;
     -fx-border-width: 3.0px;
     -fx-background-color: green;
+}
+
+.player-name {
+    -fx-font-color: #ffffff;
+    -fx-text-fill: #ffffff;
+    -fx-text-inner-color: #ffffff;
 }
 
 .card {
