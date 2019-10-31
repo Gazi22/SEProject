@@ -1,7 +1,9 @@
 package poker.version_graphics.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -38,18 +40,37 @@ public class PokerGameView {
 		Label lbs2 = new Label("Four players max!");
 		Label lbs3 = new Label("How many players are you?");
 		
+		TextField name1 = new TextField("Please enter Name of Player 1");
+		TextField name2 = new TextField("Please enter Name of Player 2");
+		TextField name3 = new TextField("Please enter Name of Player 3");
+		TextField name4 = new TextField("Please enter Name of Player 4");
+		
+		name1.setPrefSize(10, 10);
+		name2.setPrefSize(10, 10);
+		name3.setPrefSize(10, 10);
+		name4.setPrefSize(10, 10);
+
 		Button chng = new Button ("Start!");
+		Button players2 = new Button ("2 Players");
+		Button players3 = new Button ("3 Players");
+		Button players4 = new Button ("4 Players");
 		
 		BorderPane boot = new BorderPane();
-		VBox h = new VBox(lbs,lbs2,lbs3, chng);
-		boot.setCenter(h);
 		
+		VBox v1 = new VBox(lbs, lbs2, lbs3);
+		VBox v2 = new VBox(name1, name2, players2, name3, players3, name4, players4);
+		VBox v3 = new VBox(chng);
 		
+		v1.setAlignment(Pos.CENTER);
+		v2.setAlignment(Pos.CENTER);
+		v3.setAlignment(Pos.CENTER);
 		
+		boot.setTop(v1);
+		boot.setCenter(v2);
+		boot.setBottom(v3);
+
 		this.scene1 = new Scene(boot, 400, 400);
 		stage.setTitle("Poker");
-		
-		
 		
 		// Create the control area
 		controls = new ControlArea();
