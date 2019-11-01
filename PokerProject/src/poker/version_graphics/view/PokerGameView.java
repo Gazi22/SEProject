@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import poker.version_graphics.PokerGame;
 import poker.version_graphics.model.Player;
 import poker.version_graphics.model.PokerGameModel;
+import poker.version_graphics.view.PlayerPane;
 
 public class PokerGameView {
 	private HBox players;
@@ -36,50 +37,45 @@ public class PokerGameView {
 		}
 		
 		// Creation of the Setup scene
-		
+		Label lb = new Label("");
 		Label lbs = new Label("Welcome to the SE Poker Miniproject!");
 		Label lbs2 = new Label("Four players max!");
-		Label lbs3 = new Label("How many players are you?");
 		
 		TextField name1 = new TextField();
 		TextField name2 = new TextField();
 		TextField name3 = new TextField();
 		TextField name4 = new TextField();
 		
-		name1.setPromptText("Please enter Name of Player 1");
-		name2.setPromptText("Please enter Name of Player 2");
-		name3.setPromptText("Please enter Name of Player 3");
-		name4.setPromptText("Please enter Name of Player 4");
-		
 		Player player1 = new Player(name1.getText());
 		Player player2 = new Player(name2.getText());
 		Player player3 = new Player(name3.getText());
 		Player player4 = new Player(name4.getText());
+		
+		name1.setPromptText("Please enter Name of Player 1");
+		name2.setPromptText("Please enter Name of Player 2");
+		name3.setPromptText("Please enter Name of Player 3");
+		name4.setPromptText("Please enter Name of Player 4");
 
 		name1.setPrefSize(10, 10);
 		name2.setPrefSize(10, 10);
 		name3.setPrefSize(10, 10);
 		name4.setPrefSize(10, 10);
 
-		Button chng = new Button ("Start!");
-		Button players2 = new Button ("2 Players");
-		Button players3 = new Button ("3 Players");
-		Button players4 = new Button ("4 Players");
+		Button players2 = new Button ("Start with 2 Players!");
+		Button players3 = new Button ("Start with 3 Players!");
+		Button players4 = new Button ("Start with 4 Players!");
 		
 		BorderPane boot = new BorderPane();
 		
-		VBox v1 = new VBox(lbs, lbs2, lbs3);
+		VBox v1 = new VBox(lb, lbs, lbs2);
 		VBox v2 = new VBox(name1, name2, players2, name3, players3, name4, players4);
-		VBox v3 = new VBox(chng);
 		
 		v1.setAlignment(Pos.CENTER);
 		v2.setAlignment(Pos.CENTER);
-		v3.setAlignment(Pos.CENTER);
-		
+
 		boot.setTop(v1);
 		boot.setCenter(v2);
-		boot.setBottom(v3);
-
+		
 		this.scene1 = new Scene(boot, 400, 400);
 		stage.setTitle("Poker");
 		
@@ -102,10 +98,33 @@ public class PokerGameView {
         this.stage.setTitle("Poker Miniproject");
         this.stage.setScene(this.scene1);
         this.stage.show();	
-        
+		
         // Switching to the main Scene
-        chng.setOnAction(e-> stage.setScene(sce));
+
+		
+		players2.setOnAction(e -> {
+			
+			stage.setScene(sce);
+			
+		});
+	
+		
+		players3.setOnAction(e -> {
+			
+			stage.setScene(sce);	
+			
+		});
+
+
+		players4.setOnAction(e -> {
+			
+			stage.setScene(sce);
+		
+		});
+
+
 	}
+	
 	
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) players.getChildren().get(i);

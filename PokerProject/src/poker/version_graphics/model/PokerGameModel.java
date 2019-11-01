@@ -1,7 +1,7 @@
 package poker.version_graphics.model;
 
 import java.util.ArrayList;
-
+import poker.version_graphics.view.PokerGameView;
 import poker.version_graphics.PokerGame;
 
 public class PokerGameModel {
@@ -10,7 +10,7 @@ public class PokerGameModel {
 	
 	public PokerGameModel() {
 		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-			players.add(new Player("Player " + i));
+			players.add(new Player("Missgeburt " + i));
 		}
 		
 		deck = new DeckOfCards();
