@@ -5,9 +5,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import poker.version_graphics.PokerGame;
 import poker.version_graphics.model.Card;
 import poker.version_graphics.model.HandType;
 import poker.version_graphics.model.Player;
+import poker.version_graphics.view.PokerGameView;
 
 public class PlayerPane extends VBox {
     private Label lblName = new Label();
@@ -58,5 +60,6 @@ public class PlayerPane extends VBox {
     			lblEvaluation.setText("--");
     	
     	}
+    	
     }
 }
