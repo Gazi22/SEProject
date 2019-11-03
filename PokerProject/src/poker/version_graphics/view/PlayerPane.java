@@ -1,6 +1,9 @@
 package poker.version_graphics.view;
 
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -35,15 +38,16 @@ public class PlayerPane extends VBox {
             lblCard.getStyleClass().add("player-name");
             hboxCards.getChildren().add(lblCard);
             hboxCards.setSpacing(2);
-
         }
+     
+        	    
     }
     
     public void setPlayer(Player player) {
     	this.player = player;
     	updatePlayerDisplay(); // Immediately display the player information
     }
-    
+  
     public void updatePlayerDisplay() {
     	lblName.setText(player.getPlayerName());
     	lblName.setOpacity(1);
