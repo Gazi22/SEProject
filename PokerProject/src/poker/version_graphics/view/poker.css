@@ -1,6 +1,17 @@
 
+.vbox{
+-fx-font-size: 18.0px;
+-fx-font-family: algerian;
+-fx-background-color: white;
+}
 
+.vbox2{
 
+}
+
+.button {
+	
+   }
 
 
 .label {
@@ -22,11 +33,13 @@
 
 .player {
     -fx-font-size: 20.0px;
+    -fx-font-family: Forte;
     -fx-text-fill: red;
     -fx-padding: 5.0px;
     -fx-border-color: black;
     -fx-border-width: 3.0px;
     -fx-background-color: green;
+    -fx-background-image: url("PokerBackground.jpg");
 }
 
 .player-name {
