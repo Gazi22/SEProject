@@ -55,8 +55,9 @@ public class PokerGameView {
 		Button players2 = new Button("Start with 2 Players!");
 		Button players3 = new Button("Start with 3 Players!");
 		Button players4 = new Button("Start with 4 Players!");
-		boot.getStylesheets().add(
-                getClass().getResource("poker.css").toExternalForm());
+		
+		/*boot.getStylesheets().add(
+                getClass().getResource("poker.css").toExternalForm());*/
               
 
 		BorderPane boot = new BorderPane();
