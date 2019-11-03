@@ -54,10 +54,10 @@ public class PokerGameView {
         final Region spacer1 = new Region();
 		Button chng = new Button ("Start!");
 		
-		lbs.setTextFill(Color.WHITE);
-		lbs2.setTextFill(Color.WHITE);
-		lbs3.setTextFill(Color.WHITE);
-		spacer1.setMinHeight(150);
+		lbs.setTextFill(Color.GOLD);
+		lbs2.setTextFill(Color.BLACK);
+		lbs3.setTextFill(Color.GOLD);
+		spacer1.setMinHeight(125);
 		
 		
 		BorderPane boot = new BorderPane();

@@ -2,8 +2,10 @@
 .vboxscene{
 
     -fx-font-family: Arial;
-    -fx-margin-top: 100px;
+    -fx-margin-top: 10px;
     -fx-font-size: 25px;
+    -fx-font-weight:bold;
+
   }
 
 
