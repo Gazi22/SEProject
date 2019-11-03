@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -42,7 +43,6 @@ public class PokerGameView {
 	public static TextField name4 = new TextField();
 	public static TextField[] arrayTextFields = { name1, name2, name3, name4 };
 
-	public PokerGameView(Stage stage, PokerGameModel model) {
 	
 	public PokerGameView(Stage stage, PokerGameModel model) throws FileNotFoundException {
 		this.stage = stage;
@@ -72,7 +72,6 @@ public class PokerGameView {
 
 		Label lbs3 = new Label("How many players are you?");
         final Region spacer1 = new Region();
-		Button chng = new Button ("Start!");
 		
 		lbs.setTextFill(Color.GOLD);
 		lbs2.setTextFill(Color.BLACK);
@@ -91,7 +90,6 @@ public class PokerGameView {
 		boot.setTop(v1);
 		boot.setCenter(v2);
 
-		this.scene1 = new Scene(boot, 400, 400);
 		
         boot.getStylesheets().add(
                 getClass().getResource("poker.css").toExternalForm());
@@ -101,14 +99,13 @@ public class PokerGameView {
         
         //add to Pane
         boot.setTop(spacer1);
-        boot.setCenter(h);
-        boot.setBottom(chng);
+        
         
         
         //Set background
-        Image image1 = new Image(new FileInputStream("C:\\Users\\visnu\\git\\SEProject\\PokerProject\\src\\poker\\version_graphics\\view\\PokerStartScene.jpg"));
-        BackgroundSize bSize = new BackgroundSize (500,500,false,false,true,false);
-		boot.setBackground(new Background(new BackgroundImage(image1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,bSize)));
+        // Image image1 = new Image(new FileInputStream("C:\\Users\\visnu\\git\\SEProject\\PokerProject\\src\\poker\\version_graphics\\view\\PokerStartScene.jpg"));
+        // BackgroundSize bSize = new BackgroundSize (500,500,false,false,true,false);
+		// boot.setBackground(new Background(new BackgroundImage(image1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,bSize)));
 		
 		this.scene1 = new Scene(boot, 500, 500);
 		stage.setTitle("Poker");
