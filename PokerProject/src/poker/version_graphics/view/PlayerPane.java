@@ -1,5 +1,7 @@
 package poker.version_graphics.view;
 
+import java.util.ArrayList;
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -48,6 +50,7 @@ public class PlayerPane extends VBox {
     	lblName.setText(player.getPlayerName());
     	lblName.setOpacity(1);
     	lblName.setTextFill(Color.GOLD);
+    	
     	for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
     		if (player.getCards().size() > i) card = player.getCards().get(i);
@@ -60,6 +63,16 @@ public class PlayerPane extends VBox {
     			lblEvaluation.setText("--");
     	
     	}
-    	
+
+    }
+    
+    public void updateWinners(ArrayList<Player> winnerList){
+    	if(winnerList != null) {
+    		if(winnerList.contains(this.player)) {
+    			lblDeter.setText("Winner");
+    		}else {
+    			lblDeter.setText("Loser");
+    		}
+    	}
     }
 }

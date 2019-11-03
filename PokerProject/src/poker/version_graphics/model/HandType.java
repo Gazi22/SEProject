@@ -5,8 +5,17 @@ import java.util.Collections;
 import java.util.List;
 
 public enum HandType {
-    HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush;
+    HighCard(1), OnePair(2), TwoPair(3), ThreeOfAKind(4), Straight(5), Flush(6), FullHouse(7), FourOfAKind(8), StraightFlush(9);
     
+	HandType(int value){
+		this.value = value;
+	}
+	private final Integer value;
+	
+	public Integer getValue() {
+		return this.value;
+	}
+	
     /**
      * Determine the value of this hand. Note that this does not
      * account for any tie-breaking

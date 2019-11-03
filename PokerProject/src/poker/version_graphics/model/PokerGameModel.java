@@ -9,9 +9,8 @@ public class PokerGameModel {
 	private DeckOfCards deck;
 	
 	public PokerGameModel() {
-		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-			players.add(new Player("Missgeburt " + i));
-		}
+		
+		generatePlayers();
 		
 		deck = new DeckOfCards();
 		ArrayList<Card> cards1 = new ArrayList<>();
@@ -26,15 +25,40 @@ public class PokerGameModel {
 		cards1.add(card4);
 		cards1.add(card5);
 		System.out.println(HandType.evaluateHand(cards1));
-
-		
 	}
 	
 	public Player getPlayer(int i) {
+		if(players.isEmpty()) {
+			generatePlayers();
+		}
 		return players.get(i);
+	}
+	
+	public void generatePlayers() {
+		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+			players.add(new Player(PokerGameView.arrayTextFields[i].getText()));
+		}
 	}
 	
 	public DeckOfCards getDeck() {
 		return deck;
+	}
+	
+	public ArrayList<Player> evaluateWinner() {
+		ArrayList<Player> highestPlayers = new ArrayList<>();
+		for(Player p: players) {
+			if(highestPlayers.isEmpty()) {
+				highestPlayers.add(p);
+			}else {
+				if(p.compareTo(highestPlayers.get(0)) > 0) {
+					highestPlayers.clear();
+					highestPlayers.add(p);
+				}
+				else if(p.compareTo(highestPlayers.get(0)) == 0) {
+					highestPlayers.add(p);
+				}
+			}
+		}
+		return highestPlayers;
 	}
 }
