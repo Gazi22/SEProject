@@ -65,6 +65,9 @@ public class PokerGameView {
 		VBox v1 = new VBox(lb, lbs, lbs2);
 		VBox v2 = new VBox(name1, name2, players2, name3, players3, name4, players4);
 
+		v1.getStyleClass().add("vbox");
+		v2.getStyleClass().add("vbox2");
+		
 		v1.setAlignment(Pos.CENTER);
 		v2.setAlignment(Pos.CENTER);
 
@@ -72,6 +75,8 @@ public class PokerGameView {
 		boot.setCenter(v2);
 
 		this.scene1 = new Scene(boot, 400, 400);
+		
+		scene1.getStylesheets().add(getClass().getResource("poker.css").toExternalForm());
 		stage.setTitle("Poker");
 
 		// Create the control area
