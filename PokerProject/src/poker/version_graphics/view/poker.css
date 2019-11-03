@@ -1,12 +1,4 @@
 
-.vboxscene{
-
-    -fx-font-family: Arial;
-    -fx-margin-top: 10px;
-    -fx-font-size: 25px;
-    -fx-font-weight:bold;
-
-  }
 
 
 
@@ -15,8 +7,7 @@
 	-fx-padding: 9.0px;
     -fx-min-width: 200.0;
    	-fx-max-width: 2000.0;
-    -fx-alignment: center;
-    
+  	-fx-alignment: center;
 	
 	
 }
@@ -31,24 +22,23 @@
 
 .player {
     -fx-font-size: 20.0px;
-    -fx-font-family: Forte;
-    -fx-text-fill: white;
+    -fx-text-fill: red;
     -fx-padding: 5.0px;
     -fx-border-color: black;
     -fx-border-width: 3.0px;
-    -fx-background-image: url("PokerBackground.jpg");
-    -fx-background-repeat: stretch;   
-    -fx-background-size: auto;
-    -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    -fx-background-color: green;
 }
 
-
+.player-name {
+    -fx-font-color: #ffffff;
+    -fx-text-fill: #ffffff;
+    -fx-text-inner-color: #ffffff;
+}
 
 .card {
     -fx-font-size: 15.0px;
-    -fx-padding: 20.0px;
-    -fx-margin: 25.0px 25.0px 25.0px ;
+    -fx-padding: 10.0px;
+    -fx-margin: 25px 50px 75px 100px;
     -fx-border-color: black;
     -fx-border-width: 3.0px;
     -fx-background-color: rgb(255,255,255);
