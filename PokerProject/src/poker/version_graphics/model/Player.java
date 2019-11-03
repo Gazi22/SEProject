@@ -55,6 +55,10 @@ public class Player implements Comparable<Player> {
         return handType;
     }
     
+    public HandType getHandType() {
+    	return this.handType;
+    }
+    
     
     
     /**
@@ -62,6 +66,7 @@ public class Player implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player o) { 
-        return handType.compareTo(o.handType);
+    	
+        return handType.getValue().compareTo(o.handType.getValue());
     }
 }

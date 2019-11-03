@@ -55,9 +55,15 @@ public class PokerGameController {
         			p.addCard(card);
         		}
         		p.evaluateHand();
+        	
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
+        	// Evaluate the winner
+        	for(int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+        		view.getPlayerPane(i).updateWinners(model.evaluateWinner());
+        	}
+        	
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
@@ -69,6 +75,8 @@ public class PokerGameController {
     private void setBack() {
     	this.view.stage.setScene(this.view.scene1);
     }
+    
+    
     
     
 }
