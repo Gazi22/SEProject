@@ -66,13 +66,14 @@ public class PlayerPane extends VBox {
 
     }
     
-    public void updateWinners(ArrayList<Player> winnerList){
-    	if(winnerList != null) {
-    		if(winnerList.contains(this.player)) {
-    			lblDeter.setText("Winner");
-    		}else {
-    			lblDeter.setText("Loser");
-    		}
-    	}
-    }
+	// method to display the winner or loser of the round
+	public void updateWinners(ArrayList<Player> winnerList) {
+		if (winnerList != null) {
+			if (winnerList.contains(this.player)) {
+				lblDeter.setText("Winner");
+			} else {
+				lblDeter.setText("Loser");
+			}
+		}
+	}
 }

@@ -44,18 +44,13 @@ public class Card {
       
         };
         
-     
     private final Suit suit;
     private final Rank rank;
-    
-    
-    
     
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
       
-        
     }
 
     public Suit getSuit() {
@@ -65,29 +60,6 @@ public class Card {
     public Rank getRank() {
         return rank;
     }
-    
-    //Try to compare cards, don't know if it works
-    
-    public int compareTo(Card that) {
-    	
-    	if(this.suit.ordinal()>that.suit.ordinal()) {
-    		
-    		return 1;
-    	}
-    	
-    	if(this.suit.ordinal() < that.suit.ordinal()) {
-    		return -1;
-    	}
-    	int rank1 = (this.rank.ordinal()+ 11) % 13;
-    	int rank2 = (that.rank.ordinal()+ 11) % 13;
-    	
-    	if(rank1 > rank2) return 1;
-    	if(rank2 < rank2) return -1;
-    	
-    	return 0;
-    }
-    
-   
     
     
     @Override

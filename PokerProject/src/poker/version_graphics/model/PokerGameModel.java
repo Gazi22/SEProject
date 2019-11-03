@@ -12,6 +12,7 @@ public class PokerGameModel {
 		
 		generatePlayers();
 		
+		// test method for checking if the HandTypes are working
 		deck = new DeckOfCards();
 		ArrayList<Card> cards1 = new ArrayList<>();
 		Card card1 = new Card(Card.Suit.Clubs, Card.Rank.Four);
@@ -34,6 +35,7 @@ public class PokerGameModel {
 		return players.get(i);
 	}
 	
+	// method for getting the text from the TextFields and putting them in the labels
 	public void generatePlayers() {
 		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
 			players.add(new Player(PokerGameView.arrayTextFields[i].getText()));
@@ -43,18 +45,18 @@ public class PokerGameModel {
 	public DeckOfCards getDeck() {
 		return deck;
 	}
-	
+
+	// method for evaluating the winner or loser of the round
 	public ArrayList<Player> evaluateWinner() {
 		ArrayList<Player> highestPlayers = new ArrayList<>();
-		for(Player p: players) {
-			if(highestPlayers.isEmpty()) {
+		for (Player p : players) {
+			if (highestPlayers.isEmpty()) {
 				highestPlayers.add(p);
-			}else {
-				if(p.compareTo(highestPlayers.get(0)) > 0) {
+			} else {
+				if (p.compareTo(highestPlayers.get(0)) > 0) {
 					highestPlayers.clear();
 					highestPlayers.add(p);
-				}
-				else if(p.compareTo(highestPlayers.get(0)) == 0) {
+				} else if (p.compareTo(highestPlayers.get(0)) == 0) {
 					highestPlayers.add(p);
 				}
 			}

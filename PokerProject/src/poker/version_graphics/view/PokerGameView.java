@@ -37,31 +37,31 @@ public class PokerGameView {
 		// Create all of the player panes we need, and put them into an HBox
 		players = new HBox();
 
-		// Creation of the Setup scene
+		// Create Labels for first scene
 		Label lb = new Label("");
 		Label lbs = new Label("Welcome to the SE Poker Miniproject!");
 		Label lbs2 = new Label("Four players max!");
+
 		// Create transparent text
 		name1.setPromptText("Please enter Name of Player 1");
 		name2.setPromptText("Please enter Name of Player 2");
 		name3.setPromptText("Please enter Name of Player 3");
 		name4.setPromptText("Please enter Name of Player 4");
 
+		// Set size of TextFields
 		name1.setPrefSize(10, 10);
 		name2.setPrefSize(10, 10);
 		name3.setPrefSize(10, 10);
 		name4.setPrefSize(10, 10);
 
+		// Create buttons which sets the numbers of players
 		Button players2 = new Button("Start with 2 Players!");
 		Button players3 = new Button("Start with 3 Players!");
 		Button players4 = new Button("Start with 4 Players!");
-		
-		/*boot.getStylesheets().add(
-                getClass().getResource("poker.css").toExternalForm());*/
-              
 
 		BorderPane boot = new BorderPane();
 
+		// Put all labels in the first VBox and put all TextFields and Buttons in the second VBox
 		VBox v1 = new VBox(lb, lbs, lbs2);
 		VBox v2 = new VBox(name1, name2, players2, name3, players3, name4, players4);
 
@@ -93,8 +93,7 @@ public class PokerGameView {
 		this.stage.setScene(this.scene1);
 		this.stage.show();
 
-		// Switching to the main Scene
-
+		// Switching to the main (second) Scene and select how many players are playing
 		players2.setOnAction(e -> {
 			PokerGame.NUM_PLAYERS = 2;
 			clearScene();
@@ -129,6 +128,7 @@ public class PokerGameView {
 		}
 	}
 
+	// method for clearing the scene 
 	public void clearScene() {
 		model.players.clear();
 		players.getChildren().clear();

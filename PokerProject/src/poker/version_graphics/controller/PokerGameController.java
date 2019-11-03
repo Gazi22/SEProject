@@ -23,65 +23,54 @@ public class PokerGameController {
 		view.getBackButton().setOnAction(e -> setBack() );
 		
 	}
-	
-
 
     /**
      * Remove all cards from players hands, and shuffle the deck
      */
-    private void shuffle() {
-    	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-    		Player p = model.getPlayer(i);
-    		p.discardHand();
-    		PlayerPane pp = view.getPlayerPane(i);
-    		pp.updatePlayerDisplay();
-    	}
+	private void shuffle() {
+		for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+			Player p = model.getPlayer(i);
+			p.discardHand();
+			PlayerPane pp = view.getPlayerPane(i);
+			pp.updatePlayerDisplay();
+		}
 
-    	model.getDeck().shuffle();
-    }
+		model.getDeck().shuffle();
+	}
     
     /**
      * Deal each player five cards, then evaluate the two hands
      */
     private void deal() {
-    	int cardsRequired = PokerGame.NUM_PLAYERS * Player.HAND_SIZE;
-    	DeckOfCards deck = model.getDeck();
-    	if (cardsRequired <= deck.getCardsRemaining()) {
-        	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-        		Player p = model.getPlayer(i);
-        		p.discardHand();
-        		for (int j = 0; j < Player.HAND_SIZE; j++) {
-        			Card card = deck.dealCard();
-        			p.addCard(card);
-        		}
-        		p.evaluateHand();
-        	
-        		PlayerPane pp = view.getPlayerPane(i);
-        		pp.updatePlayerDisplay();
-        	}
-        	// Evaluate the winner
-        	for(int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-        		view.getPlayerPane(i).updateWinners(model.evaluateWinner());
-        	}
-        	
-    	} else {
-            Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
-            alert.showAndWait();
-    	}
-    }
-    
-    //
-    
-    private void setBack() {
-    	this.view.stage.setScene(this.view.scene1);
-    }
-    
-    
-    
-    
+		int cardsRequired = PokerGame.NUM_PLAYERS * Player.HAND_SIZE;
+		DeckOfCards deck = model.getDeck();
+		if (cardsRequired <= deck.getCardsRemaining()) {
+			for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+				Player p = model.getPlayer(i);
+				p.discardHand();
+				for (int j = 0; j < Player.HAND_SIZE; j++) {
+					Card card = deck.dealCard();
+					p.addCard(card);
+				}
+				p.evaluateHand();
+
+				PlayerPane pp = view.getPlayerPane(i);
+				pp.updatePlayerDisplay();
+			}
+			// Evaluate the winner
+			for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+				view.getPlayerPane(i).updateWinners(model.evaluateWinner());
+			}
+
+		} else {
+			Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
+			alert.showAndWait();
+		}
+	}
+
+    // Method for setting the second scene back to the first scene
+	private void setBack() {
+		this.view.stage.setScene(this.view.scene1);
+	}
+
 }
-
-    	
-    
-  
-

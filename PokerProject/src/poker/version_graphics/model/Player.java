@@ -48,25 +48,22 @@ public class Player implements Comparable<Player> {
      * If the hand has not been evaluated, but does have all cards, 
      * then evaluate it.
      */
-    public HandType evaluateHand() {
-        if (handType == null && cards.size() == HAND_SIZE) {
-            handType = HandType.evaluateHand(cards);
-        }
-        return handType;
-    }
-    
-    public HandType getHandType() {
-    	return this.handType;
-    }
-    
-    
+	public HandType evaluateHand() {
+		if (handType == null && cards.size() == HAND_SIZE) {
+			handType = HandType.evaluateHand(cards);
+		}
+		return handType;
+	}
+
+	public HandType getHandType() {
+		return this.handType;
+	}
     
     /**
      * Hands are compared, based on the evaluation they have.
      */
-    @Override
-    public int compareTo(Player o) { 
-    	
-        return handType.getValue().compareTo(o.handType.getValue());
-    }
+	@Override
+	public int compareTo(Player o) {
+		return handType.getValue().compareTo(o.handType.getValue());
+	}
 }
