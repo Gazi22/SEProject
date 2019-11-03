@@ -1,12 +1,26 @@
 package poker.version_graphics.view;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import poker.version_graphics.PokerGame;
 import poker.version_graphics.model.PokerGameModel;
@@ -20,7 +34,7 @@ public class PokerGameView {
 	public Stage stage;
 	public Scene scene1;
 	
-	public PokerGameView(Stage stage, PokerGameModel model) {
+	public PokerGameView(Stage stage, PokerGameModel model) throws FileNotFoundException {
 		this.stage = stage;
 		this.model = model;
 		
@@ -37,16 +51,35 @@ public class PokerGameView {
 		Label lbs = new Label("Welcome to the SE Poker Miniproject!");
 		Label lbs2 = new Label("Four players max!");
 		Label lbs3 = new Label("How many players are you?");
-		
+        final Region spacer1 = new Region();
 		Button chng = new Button ("Start!");
 		
+		lbs.setTextFill(Color.WHITE);
+		lbs2.setTextFill(Color.WHITE);
+		lbs3.setTextFill(Color.WHITE);
+		spacer1.setMinHeight(150);
+		
+		
 		BorderPane boot = new BorderPane();
-		VBox h = new VBox(lbs,lbs2,lbs3, chng);
-		boot.setCenter(h);
 		
+        boot.getStylesheets().add(
+                getClass().getResource("poker.css").toExternalForm());
 		
+		VBox h = new VBox(spacer1,lbs,lbs2,lbs3);
+        h.getStyleClass().add("vboxscene"); // CSS style class
+        
+        //add to Pane
+        boot.setTop(spacer1);
+        boot.setCenter(h);
+        boot.setBottom(chng);
+        
+        
+        //Set background
+        Image image1 = new Image(new FileInputStream("C:\\Users\\visnu\\git\\SEProject\\PokerProject\\src\\poker\\version_graphics\\view\\PokerStartScene.jpg"));
+        BackgroundSize bSize = new BackgroundSize (500,500,false,false,true,false);
+		boot.setBackground(new Background(new BackgroundImage(image1, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,bSize)));
 		
-		this.scene1 = new Scene(boot, 400, 400);
+		this.scene1 = new Scene(boot, 500, 500);
 		stage.setTitle("Poker");
 		
 		
