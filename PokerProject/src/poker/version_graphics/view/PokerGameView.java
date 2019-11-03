@@ -93,8 +93,8 @@ public class PokerGameView {
 		BorderPane boot = new BorderPane();
 		
 
-		//boot.getStylesheets().add(
-             //   getClass().getResource("poker.css").toExternalForm());
+		boot.getStylesheets().add(
+                getClass().getResource("poker.css").toExternalForm());
               
 
 		VBox v1 = new VBox(spacer1, lbs, lbs2, lbs3);
